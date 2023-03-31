@@ -1,0 +1,36 @@
+commit 7af94f09abc63c000a45578c9f34ad3f3653dc58 (HEAD -> master, bug3)
+Author: Zorica Nikov <zoricanikov@gmail.com>
+Date:   Sat Apr 1 00:39:40 2023 +0200
+
+    Fix method sumEvenNumbers
+
+commit 120701e55242294f6be577880132900aee418f5a
+commit 7af94f09abc63c000a45578c9f34ad3f3653dc58 (HEAD -> master, bug3)
+Author: Zorica Nikov <zoricanikov@gmail.com>
+Date:   Sat Apr 1 00:39:40 2023 +0200
+
+    Fix method sumEvenNumbers
+
+commit 120701e55242294f6be577880132900aee418f5a
+commit 7af94f09abc63c000a45578c9f34ad3f3653dc58 (HEAD -> master, bug3)
+Author: Zorica Nikov <zoricanikov@gmail.com>
+Date:   Sat Apr 1 00:39:40 2023 +0200
+
+    Fix method sumEvenNumbers
+
+commit 120701e55242294f6be577880132900aee418f5a
+Merge: 095244b 5c52019
+Author: Zorica Nikov <zoricanikov@gmail.com>
+Date:   Sat Apr 1 00:43:38 2023 +0200
+
+    Merge branch 'bug2'
+
+commit 5c52019076b0ef0e825802bd333d0f779c826666 (origin/bug2, bug2)
+Author: Zorica Nikov <zoricanikov@gmail.com>
+    Add java class
+
+commit f058b7035c0f9a9add2f753fad2bb321617aeccc
+Author: Zorica Nikov <zoricanikov@gmail.com>
+Date:   Fri Mar 31 22:57:54 2023 +0200
+
+    Initial Commit
