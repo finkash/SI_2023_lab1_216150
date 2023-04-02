@@ -1,0 +1,196 @@
+4.
+Правиме локален репозиториум
+$ mkdir SI_2023_lab1_216150
+
+Влегуваме во репозиториумот
+$ cd SI_2021_lab1_216150
+
+Го иницијализираме Git во директориумот
+$ git init
+
+Излез од командата $ git init:
+Initialized empty Git repository in C:/Users/Nikov/SI_2023_lab1_216150/SI_2023_lab1_216150/.git/
+
+5. 
+Го поврзуваме локалниот со оддалечениот репозиториум
+$ git remote add origin https://github.com/finkash/SI_2023_lab1_216150.git
+
+6.
+
+Додаваме датотека
+$ git add README.md
+
+Пишуваме во неа
+$ echo "Zorica Nikov 216150"
+
+Правиме commit, и пишуваме одредена порака
+$ git commit -m "Initial Commit"
+
+Ставаме име на гранката, а тоа е master
+$ git branch -M master
+
+Го push-нуваме commit-от што е направен локално на оддалечениот репозиториум 
+$ git push -u origin master
+
+Излез од командата $ git push -u origin master:
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 240 bytes | 120.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/finkash/SI_2023_lab1_216150.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+7. 
+Правиме нов java фајл
+$ nano SILab1.java
+
+Сакаме да зачуваме копија од моменталната состојба, но командата не запишува никаква промена се додека не се изврши git commit
+$ git add *
+
+$ git commit -m "Add java class"
+
+Излез од командата $ git commit -m "Add java class":
+[master 210df34] Add java class
+ 1 file changed, 41 insertions(+)
+ create mode 100644 SILab1.java
+
+8.
+Ги сихронизираме сите гранки со оддалечениот репозиториум
+$ git push origin master
+
+9. 
+Отвараме три гранки во кои ќе работиме на поправање на грешките во кодот во фајлот java
+$ git branch bug1
+$ git branch bug2
+$ git branch bug3
+
+10.
+Со оваа команда се префрламе на гранката која е наведена
+$ git checkout bug1
+
+Излез од командата:
+Switched to branch 'bug1'
+
+11.
+Повторно влеуваме во фајлоти менуваме тоа што е потребно
+$ nano SILab1.java
+
+$ git add *
+$ git commit -m "Fix wrong loop for reading"
+
+Излез од командата $ git commit -m "Fix wrong loop for reading":
+[bug1 095244b] Fix wrong loop for reading
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+12.
+$ git checkout bug2
+
+13.
+$ nano SILab1.java
+$ git add *
+$ git commit -m "Fix wrong condition in filterOddNumbers"
+
+Излез од командата $ git commit -m "Fix wrong condition in filterOddNumbers":
+[bug2 5c52019] Fix wrong condition in filterOddNumbers
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+14. 
+$ git checkout bug3
+
+15.
+$ nano SILab1.java
+$ git add *
+$ git commit -m "Fix method sumEvenNumbers"
+
+Излез од командата $ git commit -m "Fix method sumEvenNumbers":
+[bug3 61005e4] Fix method sumEvenNumbers
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+16.
+Ги сихронизираме сите гранки, една по една со оддалечениот репозиториум
+$ git push origin bug1
+
+Излез од командата $ git push origin bug1:
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 328 bytes | 164.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'bug1' on GitHub by visiting:
+remote:      https://github.com/finkash/SI_2023_lab1_216150/pull/new/bug1
+remote:
+To https://github.com/finkash/SI_2023_lab1_216150.git
+ * [new branch]      bug1 -> bug1
+
+
+$ git push origin bug2
+$ git push origin bug3
+
+17. 
+$ git checkout master
+
+18.
+Ја спојуваме гранката кон master
+$ git merge bug1
+
+Излез од командата $ git merge bug1:
+Updating 210df34..095244b
+Fast-forward
+ SILab1.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+- Нема конфликт
+
+19.
+$ git push origin *
+
+20.
+$ git merge bug2
+
+- Нема конфликт
+
+21.
+$ git push origin *
+
+22.
+$ git checkout bug3
+
+23. 
+Rebase е линеарен процес на спојување. Всушност, rebase ги извршува промените од гранката на која сме сега на другата гранка (master) и изгледа како промените да се направени директно на таа гранка (master)
+$ git rebase master
+
+Излез од командата:
+Successfully rebased and updated refs/heads/bug3.
+
+24.
+$ git checkout master
+
+25.
+$ git merge bug3
+- Нема конфликт
+
+26.
+$ git push origin *
+$ git checkout bug3
+
+$ git push --set-upstream origin bug3 --force
+
+Излез од командата:
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/finkash/SI_2023_lab1_216150.git
+ + 61005e4...7af94f0 bug3 -> bug3 (forced update)
+branch 'bug3' set up to track 'origin/bug3'.
+$ git checkout master
+
+
+27.
+$ nano logs.txt
+$ git add *
+$ git commit -m "Final commit"
+
+28.
+$ git push origin *
